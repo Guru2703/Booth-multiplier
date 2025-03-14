@@ -69,7 +69,7 @@ The radix-4 encoding table used in this implementation is as follows:
 
 ## **Usage**
 ### Reference:
-[Link Text](https://www.ripublication.com/aeee/006_pp%20%20%20%20683-690.pdf "Booth multiplication")
+[Booth multiplication ](https://www.ripublication.com/aeee/006_pp%20%20%20%20683-690.pdf "Booth multiplication")
 
 ### Simulation
 To simulate the Booth Multiplier, instantiate the `booth_multiplier` module in your testbench and provide the required inputs. Example:
