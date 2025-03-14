@@ -56,7 +56,7 @@ The radix-4 encoding table used in this implementation is as follows:
    - `v1` = `M`
    - `v2` = `-M << 2`
    - `v3` = `-2M << 4`
-   - `v4` = `0`
+   - `v4` = `0M << 6`
 
 3. **Result Calculation:**
    - `result = v1 + v2 + v3 + v4`
@@ -68,14 +68,16 @@ The radix-4 encoding table used in this implementation is as follows:
 ---
 
 ## **Usage**
+### Reference:
+[Link Text](https://www.ripublication.com/aeee/006_pp%20%20%20%20683-690.pdf "Booth multiplication")
 
 ### Simulation
 To simulate the Booth Multiplier, instantiate the `booth_multiplier` module in your testbench and provide the required inputs. Example:
 
 ```verilog
 module tb_booth_multiplier;
-    reg [7:0] m, M;
-    wire [15:0] result;
+    reg signed [7:0] m, M;
+    wire signed [15:0] result;
 
     booth_multiplier uut (
         .m(m),
@@ -87,6 +89,6 @@ module tb_booth_multiplier;
         m = 8'b00010110; // 22
         M = 8'b11111011; // -5
         #10;
-        $display("Result: %d", result); // Expected: -110
+        $display("multiplicand : %d , multiplier : %d ,Result: %d",m,M,result); // Expected: -110
     end
 endmodule
